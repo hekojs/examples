@@ -1,0 +1,44 @@
+{
+  "name": "heko-example-asteroid",
+  "version": "0.0.1",
+  "description": "Multiplayer Asteroid game build with Heko",
+  "license": "MIT",
+  "author": {
+    "name": "Anael Favre",
+    "email": "anael@sauce-code.fr",
+    "url": "https://sauce-code.fr"
+  },
+  "scripts": {
+    "audit": "source-map-explorer dist/bundle.js",
+    "clear": "rm -rf dist/",
+    "clear:all": "rm -rf node_modules/ && npm run clear",
+    "count": "find src -name '*.js' | xargs wc -l | sort -r",
+    "build": "npm run build:development",
+    "build:development": "webpack --config webpack/webpack.config.dev.js",
+    "build:production": "webpack --config webpack/webpack.config.prod.js",
+    "watch": "npm run build:development -- -w",
+    "start": "http-server dist/",
+    "server": "babel-watch src/server/index.js",
+    "dev": "webpack-dev-server --config webpack/webpack.config.dev.js",
+    "test": "standard",
+    "relink": "npm link @hekojs/core @hekojs/2d-renderer @hekojs/2d-physics @hekojs/multiplayer-server @hekojs/multiplayer-client @hekojs/controls @hekojs/helpers @hekojs/audio"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "babel-watch": "^7.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "file-loader": "^6.0.0",
+    "http-server": "^0.12.3",
+    "source-map-explorer": "^2.4.2",
+    "standard": "^14.3.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {}
+}
